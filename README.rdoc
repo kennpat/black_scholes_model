@@ -1,0 +1,33 @@
+Black-Scholes Model Calculator
+==============================
+
+This will become a simple calculator using the Black_Scholes model to determine
+stock option pricing as of the grant date. Note that this model is not suitable
+for options that pay dividends, or are exercisable at any given time. The model
+is designed for options that vest after a specific period or on a specific
+condition.
+
+Practical Uses of The Calculator
+--------------------------------
+
+The Calculator can be utilized to determine the amount of stock option expense
+that will be recognized due to a new grant of options. Remember that depending
+upon how the options are written will determine when the expense is
+recognized. Please inquire with your independant auditor or CPA before making
+any adjustments, as it can become a real headache when the options vest and
+they have been incorrectly recorded in prior years.
+
+What You Will Need To Use The Calculator
+----------------------------------------
+* Fair Value of the stock (either from open market, or from an accredited valuation expert)
+* The Exercise Price (as denoted on the option grant agreement)
+* Risk-Free Interest Rate (normally the 90 US T Bill rate)
+* Time to Maturity of Option (in months)
+* Volatility (see below)
+
+### Volatility is a bit complicated. If you get options from a publicly traded
+company, then it's easy. Just pull them from the financial statement footnotes.
+If it's for a privately held company then you'll need to find comparable
+publicly traded companies and average a basket of those volatilities to
+calc your own. There are a ton of resources on this online. I'll provide links
+at the bottom of the Readme.
