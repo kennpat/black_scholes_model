@@ -19,7 +19,4 @@ feature 'A User Wants To Calculate The Value Of An Option', %{
     # add in calculated value as an expectation
   end
 
-  # scenario 'User misses one of the necessary items when trying to calculate the value of an option' do
-  #
-  # end
 end
