@@ -1,42 +1,78 @@
 <h1>Black-Scholes Model Calculator</h1>
 
+<script type="text/javascript">
+  function BlackScholes(S, X, T, r, v)
+  {
+    // alert(S+X+T+r+v)
+    var PutCallFlag = "c"
+    var answer = 0.00
+    var d1, d2;
+    d1 = (Math.log(S / X) + (r + v * v / 2.0) * T) / (v * Math.sqrt(T));
+    //alert(d1)
+    d2 = d1 - v * Math.sqrt(T);
+    //alert(d2)
+    if (PutCallFlag == "c"){
+      //answer = S * CND(d1)-X * Math.exp(-r * T) * CND(d2);
+      alert(CND(d1)-X * Math.exp(-r * T) * CND(d2))
+      //alert(answer)
+    }
+    else
+    {
+      answer = X * Math.exp(-r * T) * CND(-d2) - S * CND(-d1);
+    }
+    alert(answer)
+    document.getElementById("result").value=answer;
+  }
+
+  function CND(x)
+  {
+    var a1, a2, a3, a4 ,a5, k ;
+    a1 = 0.31938153, a2 =-0.356563782, a3 = 1.781477937, a4= -1.821255978 , a5= 1.330274429;
+    alert("in da call!")
+    if(x<0.0)
+    {
+      return 1-CND(-x);
+    }
+    else
+    {
+      k = 1.0 / (1.0 + 0.2316419 * x);
+      return 1.0 - Math.exp(-x * x / 2.0)/ Math.sqrt(2*Math.PI) * k * (a1 + k * (-0.356563782 + k * (1.781477937 + k * (-1.821255978 + k * 1.330274429)))) ;
+    }
+  }
+  // function BananaPhone()
+  // {
+  //   //alert("clicked")
+  //   document.getElementById("result").value="Go fuck yourself!";
+  // }
+</script>
+
 <form class="form">
   <h4>Please enter the below information</h4>
   <div>
     <p>Stock Price:</p>
-    <input type="text" name="S">
+    <input type="number" name="S" id="S">
   </div>
   <div>
     <p>Exercice Price</p>
-    <input type="text" name="X">
+    <input type="number" name="X" id="X">
   </div>
   <div>
     <p>Time to Maturity</p>
-    <input type="text" name="T">
+    <input type="number" name="T" id="T">
   </div>
   <div>
     <p>Annualized risk-free Interest Rate</p>
-    <input type="text" name="r">
+    <input type="number" name="r" id="r" step="any">
   </div>
   <div>
     <p>Annualized Volatility</p>
-    <input type="text" name="v">
+    <input type="number" name="v" id="v">
   </div>
   <div>
-    <input type="submit" name="calculate" value="Calculate">
+    <button id="calculate" onclick="BlackScholes(parseInt(S.value), parseInt(X.value), parseInt(T.value), parseFloat(r.value), parseInt(v.value)); return false;">Calculate</button>
+  </div>
+  <div>
+    <p>Option calculated present value:</p>
+    <input type="text" id="result">
   </div>
 </form>
-
-<script type="text/javascript">
-  function BlackScholes(PutCallFlag, S, X, T, r, v) {
-
-    var d1, d2;
-    d1 = (Math.log(S / X) + (r + v * v / 2.0) * T) / (v * Math.sqrt(T));
-    d2 = d1 - v * Math.sqrt(T);
-
-    if (PutCallFlag== "c")
-      return S * CND(d1)-X * Math.exp(-r * T) * CND(d2);
-      else
-      return X * Math.exp(-r * T) * CND(-d2) - S * CND(-d1);
-    }
-</script>
