@@ -4,25 +4,39 @@
   <h4>Please enter the below information</h4>
   <div>
     <p>Stock Price:</p>
-    <input type="text" name="FairValue">
+    <input type="text" name="S">
   </div>
   <div>
     <p>Exercice Price</p>
-    <input type="text" name="ExercisePrice">
+    <input type="text" name="X">
   </div>
   <div>
     <p>Time to Maturity</p>
-    <input type="text" name="TimeToMaturity">
+    <input type="text" name="T">
   </div>
   <div>
     <p>Annualized risk-free Interest Rate</p>
-    <input type="text" name="RiskFreeRate">
+    <input type="text" name="r">
   </div>
   <div>
     <p>Annualized Volatility</p>
-    <input type="text" name="Volatility">
+    <input type="text" name="v">
   </div>
   <div>
     <input type="submit" name="calculate" value="Calculate">
   </div>
 </form>
+
+<script type="text/javascript">
+  function BlackScholes(PutCallFlag, S, X, T, r, v) {
+
+    var d1, d2;
+    d1 = (Math.log(S / X) + (r + v * v / 2.0) * T) / (v * Math.sqrt(T));
+    d2 = d1 - v * Math.sqrt(T);
+
+    if (PutCallFlag== "c")
+      return S * CND(d1)-X * Math.exp(-r * T) * CND(d2);
+      else
+      return X * Math.exp(-r * T) * CND(-d2) - S * CND(-d1);
+    }
+</script>
