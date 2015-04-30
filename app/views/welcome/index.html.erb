@@ -12,8 +12,7 @@
     d2 = d1 - v * Math.sqrt(T);
     //alert(d2)
     if (PutCallFlag == "c"){
-      //answer = S * CND(d1)-X * Math.exp(-r * T) * CND(d2);
-      alert(CND(d1)-X * Math.exp(-r * T) * CND(d2))
+      answer = S * CND(d1)-X * Math.exp(-r * T) * CND(d2);
       //alert(answer)
     }
     else
@@ -27,7 +26,7 @@
   function CND(x)
   {
     var a1, a2, a3, a4 ,a5, k ;
-    a1 = 0.31938153, a2 =-0.356563782, a3 = 1.781477937, a4= -1.821255978 , a5= 1.330274429;
+    a1 = 0.31938153, a2 = -0.356563782, a3 = 1.781477937, a4 = -1.821255978 , a5 = 1.330274429;
     alert("in da call!")
     if(x<0.0)
     {
@@ -42,7 +41,7 @@
   // function BananaPhone()
   // {
   //   //alert("clicked")
-  //   document.getElementById("result").value="Go fuck yourself!";
+  //   document.getElementById("result").value="Go yourself!";
   // }
 </script>
 
