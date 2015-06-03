@@ -9,14 +9,15 @@ feature 'A User Wants To Calculate The Value Of An Option', %{
     visit root_path
     expect(page).to have_content "Black-Scholes Model Calculator"
     fill_in 'S', with: 23
-    fill_in 'X', with: 40
-    fill_in 'r', with: 0.0019
+    fill_in 'X', with: 35
+    fill_in 'r', with: 0.18
     fill_in 'T', with: 5
-    fill_in 'v', with: 0.20
+    fill_in 'v', with: 20
     click_on 'Calculate'
+    # sleep 3.seconds
+    expect(page).to have_content 'Option calculated present value:'
+    expect(page).to have_content '1.2079'
 
-    expect(page).to have_content 'Your Calculated per option value:'
-    # add in calculated value as an expectation
   end
 
 end
