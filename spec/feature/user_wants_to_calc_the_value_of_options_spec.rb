@@ -5,7 +5,7 @@ feature 'A User Wants To Calculate The Value Of An Option', %{
   I would like to calculate the value of my option
   So that I can use that value to determine proper treatment
 } do
-  scenario 'User correctly enters necessary information to calc the value of an option' do
+  scenario 'User correctly enters necessary information to calc the value of an option', do
     visit root_path
     expect(page).to have_content "Black-Scholes Model Calculator"
     fill_in 'S', with: 23
@@ -14,8 +14,9 @@ feature 'A User Wants To Calculate The Value Of An Option', %{
     fill_in 'T', with: 5
     fill_in 'v', with: 20
     click_on 'Calculate'
-    # sleep 3.seconds
+
     expect(page).to have_content 'Option calculated present value:'
+    
     expect(page).to have_content '1.2079'
 
   end

@@ -12,6 +12,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'foundation-rails'
 
 group :development, :test do
+  gem 'selenium-webdriver'
   gem 'byebug'
   gem 'rspec-rails'
   gem 'capybara'
