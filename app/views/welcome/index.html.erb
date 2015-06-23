@@ -3,20 +3,22 @@
 <script type="text/javascript">
   function BlackScholes(S, X, T, r, v)
   {
-    var PutCallFlag = "b"
-    var answer = 0.00
+    var PutCallFlag = "c"
+    var answer = 0.00;
     var d1, d2;
     d1 = (Math.log(S / X) + (r + v * v / 2.0) * T) / (v * Math.sqrt(T));
+
     d2 = d1 - v * Math.sqrt(T);
 
     if (PutCallFlag == "c"){
       answer = S * CND(d1)-X * Math.exp(-r * T) * CND(d2);
     }
+    //Unused portion of formula for put options. May build out in future.
     else
     {
       answer = X * Math.exp(-r * T) * CND(-d2) - S * CND(-d1);
     }
-    document.getElementById("result").value=answer;
+    document.getElementById("result").value = answer
   }
 
   function CND(x){
@@ -51,18 +53,19 @@
     <input type="number" name="T" id="T">
   </div>
   <div>
-    <p>Annualized risk-free Interest Rate</p>
+    <p>Annualized risk-free Interest Rate (ex: 2% entered as 0.02)</p>
     <input type="number" name="r" id="r" step="any">
   </div>
   <div>
-    <p>Annualized Volatility</p>
-    <input type="number" name="v" id="v">
+    <p>Annualized Volatility (ex: 20% entered as 0.2)</p>
+    <input type="number" name="v" id="v" step="any">
   </div>
   <div>
-    <button id="calculate" onclick="BlackScholes(parseInt(S.value), parseInt(X.value), parseInt(T.value), parseFloat(r.value), parseInt(v.value)); return false;">Calculate</button>
+    <button id="calculate" onclick="BlackScholes(parseInt(S.value), parseInt(X.value), parseInt(T.value), parseFloat(r.value), parseFloat(v.value)); return false;">Calculate</button>
   </div>
   <div>
     <p>Option calculated present value:</p>
-    <input type="text" id="result">
+    <input type="text" id="result"/>
+    <!-- <div id="result"></div> -->
   </div>
 </form>
