@@ -17,9 +17,8 @@ feature 'A User Wants To Calculate The Value Of An Option', %{
     click_on 'Calculate'
 
     expect(page).to have_content 'Option calculated present value:'
-    sleep(5.second)
+    sleep(2.second)
     find_field('result').value
-    binding.pry
     # expect(page).to have_content '1.206'
 
   end
