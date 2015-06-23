@@ -1,4 +1,7 @@
-<h1>Black-Scholes Model Calculator</h1>
+<head>
+  <h1>Black-Scholes Model Calculator</h1>
+  <link rel="stylesheet" href="index.css"/>
+</head>
 
 <script type="text/javascript">
   function BlackScholes(S, X, T, r, v)
@@ -37,35 +40,36 @@
   }
 
 </script>
-
-<form class="form">
-  <h4>Please enter the below information</h4>
-  <div>
-    <p>Stock Price:</p>
-    <input type="number" name="S" id="S">
-  </div>
-  <div>
-    <p>Exercice Price</p>
-    <input type="number" name="X" id="X">
-  </div>
-  <div>
-    <p>Time to Maturity</p>
-    <input type="number" name="T" id="T">
-  </div>
-  <div>
-    <p>Annualized risk-free Interest Rate (ex: 2% entered as 0.02)</p>
-    <input type="number" name="r" id="r" step="any">
-  </div>
-  <div>
-    <p>Annualized Volatility (ex: 20% entered as 0.2)</p>
-    <input type="number" name="v" id="v" step="any">
-  </div>
-  <div>
-    <button id="calculate" onclick="BlackScholes(parseInt(S.value), parseInt(X.value), parseInt(T.value), parseFloat(r.value), parseFloat(v.value)); return false;">Calculate</button>
-  </div>
-  <div>
-    <p>Option calculated present value:</p>
-    <input type="text" id="result"/>
-    <!-- <div id="result"></div> -->
-  </div>
-</form>
+<body>
+  <form class="form">
+    <h4>Please enter the below information</h4>
+    <div>
+      <p>Stock Price:</p>
+      <input type="number" name="S" id="S">
+    </div>
+    <div>
+      <p>Exercice Price</p>
+      <input type="number" name="X" id="X">
+    </div>
+    <div>
+      <p>Time to Maturity</p>
+      <input type="number" name="T" id="T">
+    </div>
+    <div>
+      <p>Annualized risk-free Interest Rate (ex: 2% entered as 0.02)</p>
+      <input type="number" name="r" id="r" step="any">
+    </div>
+    <div>
+      <p>Annualized Volatility (ex: 20% entered as 0.2)</p>
+      <input type="number" name="v" id="v" step="any">
+    </div>
+    <div>
+      <button id="calculate" onclick="BlackScholes(parseInt(S.value), parseInt(X.value), parseInt(T.value), parseFloat(r.value), parseFloat(v.value)); return false;">Calculate</button>
+    </div>
+    <div>
+      <p>Option calculated present value:</p>
+      <input type="text" id="result"/>
+      <!-- <div id="result"></div> -->
+    </div>
+  </form>
+</body>
