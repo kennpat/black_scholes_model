@@ -19,8 +19,9 @@ feature 'A User Wants To Calculate The Value Of An Option', %{
     expect(page).to have_content 'Option calculated present value:'
     sleep(2.second)
     find_field('result').value
-    # expect(page).to have_content '1.206'
 
   end
+
+  # Will add tests to check fail conditions in the future
 
 end
